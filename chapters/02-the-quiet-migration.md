@@ -31,7 +31,7 @@ If this migration is real, why doesn't it show up as a crisis in your dashboards
 
 ## The gut check
 
-This is why the first tool I ever shipped for this problem takes ten seconds and asks for nothing. At audit.suedeai.ai you can check whether AI crawlers can even read your site. Not whether your content is brilliant. Whether the machines are able to fetch it at all.
+This is why the first tool I ever shipped for this problem takes ten seconds and asks for nothing. At optimize.suedeai.ai you can check whether AI crawlers can even read your site. Not whether your content is brilliant. Whether the machines are able to fetch it at all.
 
 I built the free check first because of what I kept finding: companies investing real money in content while their infrastructure silently turned AI crawlers away. A robots.txt rule written years ago for a different problem. A firewall or bot-protection layer that treats every non-Google crawler as an attacker. A site rendered so heavily in JavaScript that a text-first crawler fetches an empty shell. Each of these is invisible from inside the company. The site looks perfect in a browser. The dashboards are green. And GPTBot, PerplexityBot, and ClaudeBot are bouncing off the front door. Chapter 6 covers how to run this diagnosis properly, bot by bot.
 

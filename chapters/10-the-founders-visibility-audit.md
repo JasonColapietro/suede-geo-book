@@ -17,7 +17,7 @@ That grid is your visibility baseline. The score writes itself: how often are yo
 
 ## Lane 2: Access
 
-Chapter 6, executed and written down per bot: GPTBot, ChatGPT-User, PerplexityBot, ClaudeBot, anthropic-ai, Google-Extended, Bingbot, and your verdict for each, allowed, blocked, or unverified with the reason. Robots.txt read block by block; the ten-second check at audit.suedeai.ai; the raw-source test on your key pages, is your actual copy in the initial HTML; sitemap present and listing the pages that matter; no stray noindex or misaimed canonicals on money pages. Any fail in this lane outranks every finding in every other lane. Fix access first, always.
+Chapter 6, executed and written down per bot: GPTBot, ChatGPT-User, PerplexityBot, ClaudeBot, anthropic-ai, Google-Extended, Bingbot, and your verdict for each, allowed, blocked, or unverified with the reason. Robots.txt read block by block; the ten-second check at optimize.suedeai.ai; the raw-source test on your key pages, is your actual copy in the initial HTML; sitemap present and listing the pages that matter; no stray noindex or misaimed canonicals on money pages. Any fail in this lane outranks every finding in every other lane. Fix access first, always.
 
 ## Lane 3: The money pages
 
@@ -48,7 +48,7 @@ Then rerun the prompt set and compare against your baseline, which is Chapter 11
 
 Everything above is genuinely doable by one founder in an afternoon, and the point of this book is that you can. It is also, fairly, several focused hours plus repairs, and some readers checked the price of having it done before finishing Part I.
 
-So here is the plain version of what I sell, disclosed the way Chapter 9 says everything should be. At **scan.suedeai.ai**: a 48-hour Visibility Snapshot, the Lane 1 grid run professionally with timestamped screenshots, for $79. A Full Audit, all five lanes with a prioritized punch list, for $299. A Fix Sprint, where the repairs ship as pull requests and CMS edits with a before-and-after re-scan, for $749. A monthly re-scan at $49. Every offer carries the point-in-time disclaimer and a refund policy, and none of them promises you a citation, because Chapter 1 told you what to think of anyone who does. The free ten-second access check at **audit.suedeai.ai** stays free either way.
+So here is the plain version of what I sell, disclosed the way Chapter 9 says everything should be. At **scan.suedeai.ai**: a 48-hour Visibility Snapshot, the Lane 1 grid run professionally with timestamped screenshots, for $79. A Full Audit, all five lanes with a prioritized punch list, for $299. A Fix Sprint, where the repairs ship as pull requests and CMS edits with a before-and-after re-scan, for $749. A monthly re-scan at $49. Every offer carries the point-in-time disclaimer and a refund policy, and none of them promises you a citation, because Chapter 1 told you what to think of anyone who does. The free ten-second access check at **optimize.suedeai.ai** stays free either way.
 
 That is the whole pitch, and it is the only one in this book. The audit is yours now. Run it or hand it off, but get it run.
 

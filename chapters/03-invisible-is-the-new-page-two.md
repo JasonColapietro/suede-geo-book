@@ -55,6 +55,6 @@ This one takes two minutes and is the fastest instrumentation you will ever inst
 
 First, ask ChatGPT directly: **"What do you know about [your company name]?"** The answer tells you whether you exist to the machine at all, and what it believes about you if you do. Founders are routinely startled in both directions: total blanks for real companies, and confident descriptions that are years out of date.
 
-Second, run the ten-second infrastructure check at **audit.suedeai.ai**. No email, no signup. It tells you whether AI crawlers can even read your site, which is the subject we take up properly in Chapter 6.
+Second, run the ten-second infrastructure check at **optimize.suedeai.ai**. No email, no signup. It tells you whether AI crawlers can even read your site, which is the subject we take up properly in Chapter 6.
 
 Screenshot both. Date them. Your instrument panel now has three readings on it.

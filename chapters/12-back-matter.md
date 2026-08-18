@@ -15,7 +15,7 @@ Print this. It is the whole book in one page, in severity order.
 - [ ] Raw-source test: real copy present in initial HTML of money pages
 - [ ] Sitemap present, listed in robots.txt, contains money pages
 - [ ] No stray noindex or misaimed canonicals on money pages
-- [ ] Ten-second check run at audit.suedeai.ai
+- [ ] Ten-second check run at optimize.suedeai.ai
 
 **Money pages (Chapter 8)**
 - [ ] Definition in the first paragraph of each money page
@@ -84,7 +84,7 @@ Print this. It is the whole book in one page, in severity order.
 
 Everything in this book can be done by hand. These are the shortcuts, disclosed plainly per Chapter 9.
 
-**audit.suedeai.ai**: free, ten seconds, no email. Checks whether AI crawlers can read your site: the access lane's front door.
+**optimize.suedeai.ai**: free, ten seconds, no email. Checks whether AI crawlers can read your site: the access lane's front door.
 
 **scan.suedeai.ai**: the done-for-you ladder. 48-Hour Visibility Snapshot ($79): your prompt-set grid, run professionally, timestamped screenshots. Full Audit ($299): all five lanes, prioritized punch list. Fix Sprint ($749): repairs shipped as pull requests and CMS edits, with a before-and-after re-scan. Monthly Re-Scan ($49/mo): Chapter 11 on autopilot.
 

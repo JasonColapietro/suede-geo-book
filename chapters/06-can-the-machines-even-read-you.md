@@ -42,7 +42,7 @@ The common offenders sit in front of your site: CDN bot protection, web applicat
 
 The other offender is your own rendering. Text-first crawlers do best with content present in the initial HTML response. If your pages arrive as a nearly empty shell that assembles itself in the visitor's browser via JavaScript, a crawler that does not execute your scripts fetches the shell. Quick test: view your key page's source, the raw source, not the browser's rendered inspector, and search for a sentence of your actual copy. If your pricing, your product description, and your answers are not in that raw response, the machines may not be reading the page you think you published.
 
-If you want the fifteen minutes done for you, this is exactly what the free check at **audit.suedeai.ai** does: ten seconds, no email, and it tells you whether AI crawlers can even read your site. It is the front door of the same diagnosis this chapter just taught you to run by hand.
+If you want the fifteen minutes done for you, this is exactly what the free check at **optimize.suedeai.ai** does: ten seconds, no email, and it tells you whether AI crawlers can even read your site. It is the front door of the same diagnosis this chapter just taught you to run by hand.
 
 ## Check three: can the machines find everything
 
@@ -56,4 +56,4 @@ If everything came back open, congratulations: your problem is upstream, in stru
 
 ## Check this yourself right now
 
-Open **yourdomain.com/robots.txt** and read it against the bot list above, block by block. Then run **audit.suedeai.ai** and compare its result with your reading. Write the per-bot verdict into your notes: allowed, blocked, or unverified. That one line of notes is the foundation the next four chapters build on.
+Open **yourdomain.com/robots.txt** and read it against the bot list above, block by block. Then run **optimize.suedeai.ai** and compare its result with your reading. Write the per-bot verdict into your notes: allowed, blocked, or unverified. That one line of notes is the foundation the next four chapters build on.

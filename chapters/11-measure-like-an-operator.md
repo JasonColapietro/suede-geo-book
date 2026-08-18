@@ -47,6 +47,6 @@ Make sure they have something true, fetchable, and worth quoting when they talk 
 
 The last exercise is the smallest. Open your calendar and create the recurring event: monthly, thirty minutes, titled "AI visibility re-scan," with a link to your prompt-set file in the description. First occurrence within thirty days of your Chapter 10 audit.
 
-Then go run your baseline, if the afternoon block from Chapter 10 has not happened yet. If you want the baseline done for you instead, the Snapshot at **scan.suedeai.ai** is the same grid with professional screenshots, and the free check at **audit.suedeai.ai** takes ten seconds today.
+Then go run your baseline, if the afternoon block from Chapter 10 has not happened yet. If you want the baseline done for you instead, the Snapshot at **scan.suedeai.ai** is the same grid with professional screenshots, and the free check at **optimize.suedeai.ai** takes ten seconds today.
 
 Evidence, shipped inputs, and deltas. That is the whole discipline. Go look at what the machines are saying.
