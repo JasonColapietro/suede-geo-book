@@ -1,0 +1,15 @@
+
+body { font-family: Georgia, "Source Serif Pro", serif; color: #2a2118; background: #f7f2e8; line-height: 1.5; }
+h1 { font-family: Georgia, serif; font-weight: 700; color: #2a2118; border-top: 1px solid #8c2f22; padding-top: 0.8em; margin-top: 2em; }
+h1.title { border-top: none; padding-top: 0; font-size: 2em; }
+h2 { color: #8c2f22; font-style: italic; margin-top: 1.6em; }
+h3, h4 { color: #8c2f22; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.95em; }
+p.author { font-weight: 600; }
+p.subtitle { font-style: italic; color: #8c2f22; }
+blockquote { border-left: 3px solid #8c2f22; margin-left: 0; padding-left: 1em; color: #b06a24; font-style: italic; }
+pre, code { font-family: "Courier New", monospace; background: #efe6d2; }
+pre { padding: 0.8em 1em; border-left: 3px solid #8c2f22; overflow-x: auto; white-space: pre-wrap; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #b06a24; padding: 0.4em 0.6em; text-align: left; }
+hr { border: none; border-top: 1px solid #b06a24; margin: 2em 0; }
+a { color: #8c2f22; }
