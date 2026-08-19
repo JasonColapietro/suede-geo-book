@@ -86,8 +86,10 @@ Everything in this book can be done by hand. These are the shortcuts, disclosed 
 
 **optimize.suedeai.ai**: free, ten seconds, no email. Checks whether AI crawlers can read your site: the access lane's front door.
 
-**scan.suedeai.ai**: the done-for-you ladder. 48-Hour Visibility Snapshot ($79): your prompt-set grid, run professionally, timestamped screenshots. Full Audit ($299): all five lanes, prioritized punch list. Fix Sprint ($749): repairs shipped as pull requests and CMS edits, with a before-and-after re-scan. Monthly Re-Scan ($49/mo): Chapter 11 on autopilot.
+**scan.suedeai.ai**: the done-for-you ladder. The 48-Hour Visibility Snapshot is your prompt-set grid, run professionally, with timestamped screenshots. The Full Audit is all five lanes with a prioritized punch list. The Fix Sprint ships the repairs as pull requests and CMS edits, with a before-and-after re-scan. The Monthly Re-Scan is Chapter 11 on autopilot. Scope and price are quoted by reply.
 
-Every offer carries a point-in-time disclaimer and a refund policy. None of them guarantees a citation, a ranking, or a recommendation, because nobody honest can.
+**seo.suedeai.ai**: the retainer practice. The same five lanes run continuously, with PR, entity and reputation work beside them, for a small number of companies. Quoted by reply. This book, in both editions, lives at seo.suedeai.ai/book.
+
+Every engagement carries a point-in-time disclaimer and a refund policy. None of them guarantees a citation, a ranking, or a recommendation, because nobody honest can.
 
 *The Screenshot* is a Johnny Suede Press book by Jason Colapietro, founder of Suede Labs. All engine behaviors described were observed as of this edition's writing and will drift; the discipline is built to outlast the details. Trademarks belong to their owners; the engines named here are products of their respective companies, and nothing in this book implies their endorsement.
