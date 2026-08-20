@@ -3,7 +3,7 @@
 # Chapter 11: Measure Like an Operator
 
 > "Never claim an outcome. Evidence, shipped inputs, and deltas only."
-> — from the Suede Scan operations runbook
+> — from the Suede operations runbook
 
 The sentence at the top of this chapter is the rule I wrote for myself before I let myself sell any of this. It was a promise-discipline for client work: never tell a founder "you'll get cited." Show the evidence, ship the inputs, measure the delta. But read it again as a founder running your own program, because it is also the complete theory of measurement for AI visibility, in nine words.
 
@@ -27,7 +27,7 @@ And when a delta shows up before an input did, ask why. Sometimes the answer is 
 
 One habit from my runbook transfers whole, and I want to hand it over explicitly because it is the most operator-grade sentence in this book: verify the inputs are live before you measure the delta.
 
-In client Fix Sprints, the day before any re-scan, I run a five-minute check: fetch the llms.txt, view source on the repaired page, confirm the schema block is actually in production. Because deploys get reverted, CMS edits sit unpublished, and a re-scan of an unpatched site measures nothing but noise, while looking exactly like a real result. If the inputs are not live, the re-scan waits.
+On client repair work, the day before any re-measurement, I run a five-minute check: fetch the llms.txt, view source on the repaired page, confirm the schema block is actually in production. Because deploys get reverted, CMS edits sit unpublished, and a re-scan of an unpatched site measures nothing but noise, while looking exactly like a real result. If the inputs are not live, the re-scan waits.
 
 Run your own version. Before each monthly reading, spend five minutes confirming that what you think you shipped is what the machines can currently fetch. The audit taught you every check involved. It is the difference between measuring your work and measuring your assumption that the work happened.
 
@@ -47,6 +47,6 @@ Make sure they have something true, fetchable, and worth quoting when they talk 
 
 The last exercise is the smallest. Open your calendar and create the recurring event: monthly, thirty minutes, titled "AI visibility re-scan," with a link to your prompt-set file in the description. First occurrence within thirty days of your Chapter 10 audit.
 
-Then go run your baseline, if the afternoon block from Chapter 10 has not happened yet. If you want the baseline done for you instead, the Snapshot at **scan.suedeai.ai** is the same grid with professional screenshots, and the free check at **optimize.suedeai.ai** takes ten seconds today.
+Then go run your baseline, if the afternoon block from Chapter 10 has not happened yet. If you want the baseline measured for you instead, that is the retainer at **seo.suedeai.ai**, and the free check at **optimize.suedeai.ai** takes ten seconds today.
 
 Evidence, shipped inputs, and deltas. That is the whole discipline. Go look at what the machines are saying.

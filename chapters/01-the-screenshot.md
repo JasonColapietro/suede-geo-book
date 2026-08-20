@@ -3,7 +3,7 @@
 # Chapter 1: The Screenshot
 
 > "The paid unit of value is the screenshot of ChatGPT, Perplexity, or Gemini recommending your competitor instead of you."
-> — from the Suede Scan product spec
+> — from the Suede product spec
 
 There is a message I have sent to founders more times than I can count. It goes like this:
 
@@ -25,7 +25,7 @@ If you are not in the answer, you are not losing the deal. Losing implies you co
 
 So I started running the check for people. Ask the engines the questions their buyers ask, several different ways. Capture every prompt and every answer with timestamps. Count who gets named. Put the screenshots in front of the founder. Then, for the ones who wanted it, ship the actual repairs the same day: the structured data, the machine-readable files, the rewritten page sections that give an engine something worth citing.
 
-That service became Suede Scan. This book exists because the diagnosis half of that work should not be a secret. You can run it yourself, today, for free, and Part II shows you exactly how. What I sell is speed and execution. What I am giving you here is the sight.
+That service became Suede's paid audit work. This book exists because the diagnosis half of that work should not be a secret. You can run it yourself, today, for free, and Part II shows you exactly how. What I sell is speed and execution. What I am giving you here is the sight.
 
 ## Why a screenshot and not a report
 

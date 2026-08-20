@@ -1,9 +1,9 @@
 # Chapter 9: Receipts Beat Claims
 
 > "A founder buys from a named human with receipts, not a brand account with no face."
-> — from the Suede Scan launch playbook
+> — from the Suede launch playbook
 
-The line above is from my own launch playbook, where it decided something small: which account posts. Everything for Suede Scan ships from my personal account, under my name, with evidence attached. The brand account amplifies; it never originates. The reasoning was simple: a founder buys from a named human with receipts, not a brand account with no face.
+The line above is from my own launch playbook, where it decided something small: which account posts. Everything for Suede ships from my personal account, under my name, with evidence attached. The brand account amplifies; it never originates. The reasoning was simple: a founder buys from a named human with receipts, not a brand account with no face.
 
 I did not expect that sentence to double as technical SEO advice. Then I watched what the engines cite, and it turns out machines evaluate trust the way skeptical buyers do. This chapter is about making your pages carry receipts, because in a world of infinite generated text, receipts are what remains scarce.
 

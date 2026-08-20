@@ -15,7 +15,7 @@
 
 ## About the Author
 
-Jason Colapietro is the founder of Suede Labs, a music-technology company built around a simple conviction: creators should own their work, their rights, and their visibility. Along the way he built something adjacent and urgent. He started running founders' categories through ChatGPT, Perplexity, and Gemini, capturing timestamped screenshots of who the machines recommend, and shipping the repairs the same day. That service is Suede Scan. This book is the thinking behind it, written down so you can run the diagnosis yourself.
+Jason Colapietro is the founder of Suede Labs, a music-technology company built around a simple conviction: creators should own their work, their rights, and their visibility. Along the way he built something adjacent and urgent. He started running founders' categories through ChatGPT, Perplexity, and Gemini, capturing timestamped screenshots of who the machines recommend, and shipping the repairs the same day. That service is Suede's paid audit work. This book is the thinking behind it, written down so you can run the diagnosis yourself.
 
 He is a four-time published author. This is the fifth, and the only one written because his DMs kept proving the same uncomfortable fact: most founders have never once looked at what AI says when a buyer asks about their category.
 

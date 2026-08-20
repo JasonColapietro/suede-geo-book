@@ -86,9 +86,7 @@ Everything in this book can be done by hand. These are the shortcuts, disclosed 
 
 **optimize.suedeai.ai**: free, ten seconds, no email. Checks whether AI crawlers can read your site: the access lane's front door.
 
-**scan.suedeai.ai**: the done-for-you ladder. The 48-Hour Visibility Snapshot is your prompt-set grid, run professionally, with timestamped screenshots. The Full Audit is all five lanes with a prioritized punch list. The Fix Sprint ships the repairs as pull requests and CMS edits, with a before-and-after re-scan. The Monthly Re-Scan is Chapter 11 on autopilot. Scope and price are quoted by reply.
-
-**seo.suedeai.ai**: the retainer practice. The same five lanes run continuously, with PR, entity and reputation work beside them, for a small number of companies. Quoted by reply. This book, in both editions, lives at seo.suedeai.ai/book.
+**seo.suedeai.ai**: the done-for-you version. The same five lanes run continuously as a retainer, with PR, entity and reputation work beside them, for a small number of companies: the baseline measured for you, the repairs shipped as pull requests and CMS edits, and Chapter 11 kept running without you. Scope and price are quoted by reply, because both depend on the site. This book, in both editions, lives at seo.suedeai.ai/book.
 
 Every engagement carries a point-in-time disclaimer and a refund policy. None of them guarantees a citation, a ranking, or a recommendation, because nobody honest can.
 
