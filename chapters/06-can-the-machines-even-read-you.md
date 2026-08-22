@@ -3,26 +3,26 @@
 # Chapter 6: Can the Machines Even Read You?
 
 > "Fetch the file and read the rules. Do not assume."
-> — from the Suede AI SEO methodology
+> - from the Suede AI SEO methodology
 
 Every repair in this book depends on one precondition: when an AI crawler shows up at your site, it gets your content. Not a block, not a challenge page, not an empty JavaScript shell. Your actual words.
 
-This is the least glamorous chapter in the book and the first one for a reason. In the scans I run, access problems are the most common severe finding, and they are always invisible from inside the company. The site looks perfect in every browser anyone has ever opened. Meanwhile some or all of the AI crawlers are being turned away at the door, and nothing anywhere records the refusal. Silent failure, exactly as Chapter 3 promised.
+This is the least glamorous chapter in the book and the first one for a reason. Access problems are severe precisely because they can be invisible from inside the company. The site looks perfect in every browser anyone has opened while a search crawler may receive a block, challenge page, or empty shell, with no internal alert recording the refusal. Silent failure, exactly as Chapter 3 promised.
 
 The good news: access is the most mechanically checkable thing in this entire field. No judgment calls, no engine mystique. A file either allows a bot or it does not. A URL either returns your content or it does not. You can verify every piece of this yourself in under fifteen minutes.
 
 ## Know the bots by name
 
-Each AI platform sends its own crawler, identified by name, and blocking a platform's bot generally means that platform cannot fetch and cite your pages. The names to know:
+The bot names matter, but they do not all do the same job. A search crawler can make a page eligible for retrieval. A user-request fetcher may retrieve a page after someone asks for it. A model-development crawler concerns training, not live search inclusion. Keep those lanes separate:
 
-- **GPTBot** and **ChatGPT-User**, from OpenAI. The first crawls; the second fetches pages live during ChatGPT browsing.
-- **PerplexityBot**, from Perplexity.
-- **ClaudeBot** and **anthropic-ai**, from Anthropic.
-- **Google-Extended**, Google's control for its Gemini models. Note that Google's AI Overviews ride on ordinary Google Search crawling, so your regular Googlebot access matters there.
-- **Bingbot**, which feeds Microsoft Copilot through the Bing index.
-- **CCBot**, from Common Crawl, a dataset many models train on.
+- **OAI-SearchBot** is OpenAI's search crawler. **ChatGPT-User** fetches pages in response to a user's request. **GPTBot** is the separate model-development crawler. OpenAI documents those roles independently in its [publisher guidance](https://help.openai.com/en/articles/9237897).
+- **PerplexityBot** builds Perplexity's search index. **Perplexity-User** supports user-requested fetches. Perplexity says PerplexityBot is not used to build foundation models in its [crawler documentation](https://docs.perplexity.ai/docs/resources/perplexity-crawlers).
+- **Claude-SearchBot** supports search discovery, **Claude-User** supports user-requested retrieval, and **ClaudeBot** is Anthropic's model-development crawler. Anthropic separates the three in its [crawler guidance](https://support.anthropic.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler).
+- **Googlebot** feeds Google Search, including the pages that can appear in AI Overviews and AI Mode. **Google-Extended** is a separate product token for Gemini Apps and Vertex AI training and grounding. Google says Google-Extended does not affect inclusion or ranking in Google Search in its [AI features guidance](https://developers.google.com/search/docs/appearance/ai-features).
+- **Bingbot** feeds Microsoft Copilot through the Bing index.
+- **CCBot** collects for Common Crawl, a dataset used in model development and other research.
 
-These are different doors. It is entirely possible, and depressingly common, to be open to Google, closed to OpenAI, and challenged by everything else, without anyone in the company having decided any of it.
+These are different doors. It is entirely possible to be discoverable in Google Search, absent from another search index, open to a user-request fetch, and closed to model development, without anyone in the company having made those choices deliberately. Access can make retrieval possible. It cannot guarantee a citation, a brand mention, a recommendation, or a factually accurate answer.
 
 ## Check one: robots.txt, actually read
 
@@ -32,7 +32,7 @@ Open the file in a browser. Reading it takes one rule: a Disallow line belongs t
 
 What you are looking for: any of the named bots blocked, or a blanket rule doing it wholesale. If the file fails to load at all, that is a finding too. Treat access as unverified, not as open, and find out why.
 
-One nuance before you reach for the delete key. Blocking AI bots is a legitimate business decision for some companies; publishers with licensing concerns, for instance, block training crawlers on purpose. The problem is not blocking. The problem is blocking by accident, inherited from an old contractor's template. There is also a middle position worth knowing: block the training-only crawler, CCBot, while allowing the search-and-answer bots, keeping your content out of bulk training sets while remaining citable. Whatever you choose, the fix for an unintended block is one line of text removed. It may be the highest-leverage single edit in this book.
+One nuance before you reach for the delete key. Blocking AI bots is a legitimate business decision for some companies; publishers with licensing concerns, for instance, block model-development crawlers on purpose. The problem is not blocking. The problem is blocking by accident, inherited from an old contractor's template. A deliberate policy can allow search crawlers such as OAI-SearchBot, Claude-SearchBot, PerplexityBot, Googlebot, and Bingbot while blocking model-development crawlers such as GPTBot, ClaudeBot, and CCBot. Google-Extended belongs in that policy conversation too, but it is not the control for Google Search or Google's AI search features. Whatever you choose, document it per bot and verify the result.
 
 ## Check two: what the bot actually receives
 

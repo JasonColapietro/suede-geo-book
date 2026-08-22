@@ -9,11 +9,11 @@ The sentence at the top of this chapter is the rule I wrote for myself before I 
 
 You cannot control outcomes here. The engines are moving targets: answers shift between days, sessions, and accounts, and no one outside those companies decides who gets named. What you control, entirely, are the inputs, and what you can observe, honestly, are the deltas. An operator builds their measurement on exactly those two things and refuses to be graded, or grade anyone else, on the weather in between.
 
-## The monthly re-scan
+## The monthly measurement
 
 The instrument is the one you built in Chapter 10: the prompt set, 10 to 20 buying questions across the engines, screenshots, dates, a grid of who got named and who got cited. The operating rhythm is monthly, same prompts, same conditions, logged in or out noted, results into the same file next to last month's.
 
-Monthly is deliberate. Weekly makes you a day trader of answer noise; engines wobble between sessions, and you will chase ghosts. Quarterly lets a silent regression, a replatform that broke crawler access, a competitor's content push, run for ninety days unobserved. Monthly matches the speed at which inputs actually take effect and keeps the habit cheap enough to survive. Thirty minutes, once a month. Put it on the calendar next to the audit block, or let a re-scan subscription do it for you; either way, the reading happens on schedule, not on curiosity.
+Monthly is deliberate. Weekly makes you a day trader of answer noise; engines wobble between sessions, and you will chase ghosts. Quarterly lets a silent regression, a replatform that broke crawler access, a competitor's content push, run for ninety days unobserved. Monthly matches the speed at which inputs actually take effect and keeps the habit cheap enough to survive. Thirty minutes, once a month. Put it on the calendar next to the audit block, or have your retainer team run it; either way, the reading happens on schedule, not on curiosity.
 
 ## Read deltas, not weather
 
@@ -27,7 +27,7 @@ And when a delta shows up before an input did, ask why. Sometimes the answer is 
 
 One habit from my runbook transfers whole, and I want to hand it over explicitly because it is the most operator-grade sentence in this book: verify the inputs are live before you measure the delta.
 
-On client repair work, the day before any re-measurement, I run a five-minute check: fetch the llms.txt, view source on the repaired page, confirm the schema block is actually in production. Because deploys get reverted, CMS edits sit unpublished, and a re-scan of an unpatched site measures nothing but noise, while looking exactly like a real result. If the inputs are not live, the re-scan waits.
+On client repair work, the day before any repeat measurement, I run a five-minute check: fetch the llms.txt, view source on the repaired page, confirm the schema block is actually in production. Because deploys get reverted, CMS edits sit unpublished, and measuring an unpatched site produces nothing but noise while looking exactly like a real result. If the inputs are not live, the measurement waits.
 
 Run your own version. Before each monthly reading, spend five minutes confirming that what you think you shipped is what the machines can currently fetch. The audit taught you every check involved. It is the difference between measuring your work and measuring your assumption that the work happened.
 
@@ -35,7 +35,7 @@ Run your own version. Before each monthly reading, spend five minutes confirming
 
 Step back far enough and the whole book compresses into a stance.
 
-The buyers migrated to a layer that writes shortlists. That layer is binary, silent, and compounding, which is why waiting is the one indefensible strategy. It selects sources by citation logic: access, structure, evidence, entity clarity, every one of them an input you control and can inspect. So the operator's loop is: baseline the answers, fix the inputs in severity order, verify the inputs are live, re-scan on a rhythm, read the deltas, repeat. No step requires permission, a budget committee, or a guru. The first pass costs an afternoon, and every pass after costs half an hour a month.
+The buyers migrated to a layer that writes shortlists. That layer is binary, silent, and compounding, which is why waiting is the one indefensible strategy. It selects sources by citation logic: access, structure, evidence, entity clarity, every one of them an input you control and can inspect. So the operator's loop is: baseline the answers, fix the inputs in severity order, verify the inputs are live, repeat the measurement on a rhythm, read the deltas, repeat. No step requires permission, a budget committee, or a guru. The first pass costs an afternoon, and every pass after costs half an hour a month.
 
 Most of your competitors will not do this. Not because it is hard, but because it is silent, and silence never makes it onto a roadmap. You have watched the machines answer your category's questions with your own eyes, which puts you, permanently, in the minority that has looked.
 
@@ -45,7 +45,7 @@ Make sure they have something true, fetchable, and worth quoting when they talk 
 
 ## Check this yourself right now
 
-The last exercise is the smallest. Open your calendar and create the recurring event: monthly, thirty minutes, titled "AI visibility re-scan," with a link to your prompt-set file in the description. First occurrence within thirty days of your Chapter 10 audit.
+The last exercise is the smallest. Open your calendar and create the recurring event: monthly, thirty minutes, titled "AI visibility measurement," with a link to your prompt-set file in the description. First occurrence within thirty days of your Chapter 10 audit.
 
 Then go run your baseline, if the afternoon block from Chapter 10 has not happened yet. If you want the baseline measured for you instead, that is the retainer at **seo.suedeai.ai**, and the free check at **optimize.suedeai.ai** takes ten seconds today.
 

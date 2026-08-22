@@ -1,7 +1,7 @@
 # Chapter 3: Invisible Is the New Page Two
 
 > "Blocked silently, which is worse than an error."
-> — from the Suede operations runbook
+> - from the Suede operations runbook
 
 Every founder of the last twenty years learned one piece of search folklore: nobody looks at page two. It was the industry's favorite dark joke, the punchline about where to hide a body. But page two, for all its deadness, had a redeeming feature that we only appreciate now that it is gone.
 
@@ -23,7 +23,7 @@ The nearest analogue is not SEO at all. It is retail distribution. Either your p
 
 The line at the top of this chapter comes from my own operations notes, and the story behind it is worth telling because it is this whole problem in miniature.
 
-While running client scans, I documented a failure mode with one of the major engines: logged out, its prompt box rendered normally, accepted typed text, and then, on submit, produced nothing. No answer, no error, no message. The box just went empty. My note from that day reads: blocked silently, which is worse than an error. Because an error tells you something failed. Silence lets you believe it worked.
+During routine answer-engine checks, a major engine's logged-out prompt box rendered normally, accepted typed text, and then produced nothing on submit. No answer, no error, no message. The box just went empty. The operational note is simple: silent failure is worse than an error. An error tells you something failed. Silence lets you believe it worked.
 
 Hold onto that sentence, because it describes almost every failure in AI visibility.
 

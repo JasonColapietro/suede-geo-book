@@ -17,7 +17,7 @@ That grid is your visibility baseline. The score writes itself: how often are yo
 
 ## Lane 2: Access
 
-Chapter 6, executed and written down per bot: GPTBot, ChatGPT-User, PerplexityBot, ClaudeBot, anthropic-ai, Google-Extended, Bingbot, and your verdict for each, allowed, blocked, or unverified with the reason. Robots.txt read block by block; the ten-second check at optimize.suedeai.ai; the raw-source test on your key pages, is your actual copy in the initial HTML; sitemap present and listing the pages that matter; no stray noindex or misaimed canonicals on money pages. Any fail in this lane outranks every finding in every other lane. Fix access first, always.
+Chapter 6, executed and written down per bot and per role. Search discovery: OAI-SearchBot, PerplexityBot, Claude-SearchBot, Googlebot, and Bingbot. User-request fetches: ChatGPT-User, Perplexity-User, and Claude-User. Model development and related controls: GPTBot, ClaudeBot, CCBot, and Google-Extended. Record each as allowed, blocked, or unverified, with the reason. Read robots.txt block by block; run the ten-second check at optimize.suedeai.ai; inspect the raw source of your key pages; confirm the sitemap lists the pages that matter; check for stray noindex tags or misaimed canonicals. Fix unintended access failures first, but keep the result precise: crawl access is eligibility for retrieval, not proof of citation, mention, recommendation, or factual accuracy.
 
 ## Lane 3: The money pages
 

@@ -1,7 +1,7 @@
 # Chapter 7: The Six Engines and Who Each One Trusts
 
 > "I audit how ChatGPT, Perplexity, and Gemini answer your category, then ship the fix the same day."
-> — Jason Colapietro, @johnnysuede bio
+> - Jason Colapietro, @johnnysuede bio
 
 Founders talk about "AI" as if it were one place, the way people once said "the internet." Operationally, there is no such place. There are six engines that matter for buying questions, each with its own way of finding sources, its own trust preferences, and its own failure modes. Treating them as one thing produces the classic mistake of optimizing hard for a behavior only one engine has.
 
@@ -17,21 +17,21 @@ One Google behavior deserves special attention: query fan-out. Google's AI featu
 
 ## ChatGPT
 
-ChatGPT answers from two layers: its training data, the accumulated public web as of a cutoff, and live web search when it browses. The two layers fail differently. Training data is why it can describe your company confidently and wrongly, using facts from two years ago. Live search, via GPTBot and ChatGPT-User, is where today's pages compete for citation.
+ChatGPT answers from two layers: model knowledge and live web search when it browses. The two layers fail differently. Model knowledge can preserve an old description of your company. For current web discovery, OpenAI identifies **OAI-SearchBot** as its search crawler; **ChatGPT-User** handles user-requested page fetches, while **GPTBot** is a separate model-development crawler. Access makes retrieval possible. Whether a retrieved page is cited, whether your brand is mentioned, whether it is recommended, and whether the answer is factually correct are four separate measurements.
 
 What ChatGPT observably rewards is extractable structure: passages that answer a question in one self-contained block, FAQs, comparison tables, definitions that stand alone. It draws from a wider pool than the top of Google's rankings, which makes it one of the friendliest arenas for the decoupling in Chapter 4: a modest-ranking site with quotable structure gets named. It also leans noticeably on third-party surfaces, review sites, comparison articles, community threads, when recommending in a category.
 
 ## Perplexity
 
-Perplexity is the transparency engine: always searching, always citing, links visible on every answer. That transparency makes it your best diagnostic instrument, the engine where you can see exactly which pages taught the machine its answer, which you exploited in Chapter 2.
+Perplexity is the transparency engine: it searches the web and normally shows links with its answer. That transparency makes it a useful diagnostic instrument because you can inspect the pages attached to a response, as you did in Chapter 2.
 
-It favors authoritative, recent, well-structured content, and its freshness preference is real enough to act on: stale pages lose citations here first. Keep your key pages visibly current, dates included, and Perplexity is winnable structure-first territory. PerplexityBot must be able to reach you, which Chapter 6 already had you verify.
+Keep your key pages accurate, structured, and honestly dated. **PerplexityBot** supports search indexing; **Perplexity-User** supports user-requested fetches. Chapter 6 had you verify both roles without treating access as proof that a page will be cited.
 
 ## Gemini
 
-Google's assistant draws on the Google index and, critically, the Knowledge Graph, Google's structured understanding of entities: companies, products, people, and how they relate. Gemini rewards being a well-defined entity, not just a well-ranked page. Is your company unambiguous to Google: consistent name, consistent description, structured data connecting your organization to your site, coherent presence on the surfaces Google trusts? Chapter 8 covers the schema markup that feeds this. Access-wise, Google-Extended is the switch; you checked it in Chapter 6.
+Google's AI search features draw on Google's search systems, including its index and structured understanding of entities: companies, products, people, and how they relate. Is your company unambiguous to Google: consistent name, consistent description, structured data connecting your organization to your site, coherent presence on the surfaces Google can verify? Chapter 8 covers the schema markup that supports this. **Googlebot** controls search discovery. **Google-Extended** does not control inclusion or ranking in Google Search, AI Overviews, or AI Mode; it governs separate Gemini Apps and Vertex AI training and grounding uses.
 
-A field note from my own scan runbook, as a reminder that these engines are living systems: during one client-scan period, Gemini's logged-out interface accepted a typed prompt and returned nothing at all. No error, just an empty box. Blocked silently, worse than an error. Verify your engines are actually responding when you run your checks, and note the conditions, logged in or out, which account, what day.
+One operational warning matters because these engines are living systems: an interface can accept a typed prompt and return nothing at all. No error, just an empty box. Treat that as an engine failure, not as evidence about the company being checked. Verify that each engine actually responds, and record the conditions: logged in or out, which account, and what day.
 
 ## Microsoft Copilot
 
@@ -39,7 +39,7 @@ Copilot is Bing-powered, which makes it the engine founders most consistently fo
 
 ## Claude
 
-Anthropic's Claude answers primarily from training data, plus web search where enabled, drawing on an external search index. The operational notes are simple: ClaudeBot and anthropic-ai are the crawlers to allow, and your durable public footprint, the evidence trail from Chapters 5 and 9, is what a training-data-weighted engine most reflects. Claude also matters for a reason beyond its chat interface: it is widely embedded inside other products and agent workflows, answering category questions in places you will never see.
+Claude combines model knowledge with web search where enabled. The access controls are role-specific: **Claude-SearchBot** supports search discovery, **Claude-User** supports user-requested retrieval, and **ClaudeBot** is the model-development crawler. Your durable public footprint still matters, but do not report an accessible page as a citation, a mention as a recommendation, or a recommendation as a factually correct description.
 
 ## Reading the table
 

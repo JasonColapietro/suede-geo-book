@@ -10,7 +10,7 @@ Print this. It is the whole book in one page, in severity order.
 
 **Access (Chapter 6): fix before everything else**
 - [ ] robots.txt fetched and read block by block
-- [ ] Per-bot verdict written: GPTBot, ChatGPT-User, PerplexityBot, ClaudeBot, anthropic-ai, Google-Extended, Bingbot: allowed / blocked / unverified with reason
+- [ ] Per-role access verdict written: search discovery (OAI-SearchBot, PerplexityBot, Claude-SearchBot, Googlebot, Bingbot), user-request fetches (ChatGPT-User, Perplexity-User, Claude-User), and model-development controls (GPTBot, ClaudeBot, CCBot, Google-Extended): allowed / blocked / unverified with reason
 - [ ] Bot-protection and firewall layers checked for AI-crawler challenges
 - [ ] Raw-source test: real copy present in initial HTML of money pages
 - [ ] Sitemap present, listed in robots.txt, contains money pages
@@ -42,8 +42,8 @@ Print this. It is the whole book in one page, in severity order.
 
 **Rhythm (Chapter 11)**
 - [ ] Repairs logged with ship dates
-- [ ] Inputs verified live before each re-scan (the day-6 lesson)
-- [ ] Monthly 30-minute re-scan on the calendar, same prompts, same file
+- [ ] Inputs verified live before each repeat measurement (the day-6 lesson)
+- [ ] Monthly 30-minute measurement on the calendar, same prompts, same file
 - [ ] Deltas read as trend, displacement, and input correlation; single-month wobble ignored
 
 # Appendix B: Glossary
@@ -54,7 +54,9 @@ Print this. It is the whole book in one page, in severity order.
 
 **Citation.** An engine using, and often linking, a specific page as a source for its answer. The unit of victory in this book.
 
-**Crawler / bot.** Software an engine sends to fetch web pages. Each platform's crawler has a name your robots.txt can allow or block (GPTBot, PerplexityBot, ClaudeBot, Google-Extended, Bingbot, CCBot).
+**Crawler / bot.** Software an engine sends to fetch web pages. Examples include OAI-SearchBot, PerplexityBot, Claude-SearchBot, Googlebot, Bingbot, GPTBot, ClaudeBot, and CCBot.
+
+**Google-Extended.** A robots.txt product token that controls certain uses of crawled content for Gemini and Vertex AI systems. It is not a separate crawler and does not control inclusion or ranking in Google Search.
 
 **Delta.** The change between two dated readings of the same prompt set. The only measurement this book trusts.
 

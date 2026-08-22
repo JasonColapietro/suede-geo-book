@@ -1,14 +1,23 @@
 #!/usr/bin/env python3
 """Build the PDF edition: assembled markdown -> pandoc standalone HTML -> Chromium print-to-PDF.
 No LaTeX on this machine, so the PDF is printed from styled HTML via Playwright's chromium.
-Run build_epub.py first (this reads THE-SCREENSHOT.md, it does not regenerate it)."""
+The standalone command fails if THE-SCREENSHOT.md does not match current chapters.
+Use build_release.py for a real all-format release."""
+import json
 import os
+import re
+import shutil
 import subprocess
+import tempfile
+from pathlib import Path
+
+from build_epub import assemble_master_text, release_lock
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 MASTER = os.path.join(BASE, "THE-SCREENSHOT.md")
 HTML = os.path.join(BASE, "exports", "THE-SCREENSHOT.pdf.html")
 PDF = os.path.join(BASE, "exports", "THE-SCREENSHOT.pdf")
+PDF_DATE = b"D:20260821000000+00'00'"
 
 PRINT_CSS = """
 @page { size: 6in 9in; margin: 0.75in 0.7in; }
@@ -38,40 +47,154 @@ header#title-block-header p.author { font-weight:700; margin:26pt 0 0; font-size
 header#title-block-header p.date { color:#b06a24; margin:6pt 0 0; font-size:10pt; }
 """
 
-os.makedirs(os.path.join(BASE, "exports"), exist_ok=True)
-css_path = os.path.join(BASE, "exports", "print.css")
-with open(css_path, "w", encoding="utf-8") as f:
-    f.write(PRINT_CSS)
 
-subprocess.run([
-    "pandoc", MASTER,
-    "-o", HTML,
-    "--standalone",
-    "--from", "markdown",
-    "--css", "print.css",
-    "--metadata", "title=THE SCREENSHOT",
-    "--metadata", "subtitle=Why AI Recommends Your Competitors, and How to Fix It",
-    "--metadata", "author=Jason Colapietro",
-    "--metadata", "date=Johnny Suede Press · 2026",
-    "--metadata", "lang=en-US",
-], check=True)
+def normalize_pdf_payload(payload):
+    """Normalize volatile PDF fields and reject unexpected qpdf output."""
+    payload, creation_count = re.subn(
+        rb"/CreationDate \(D:[^)]+\)",
+        b"/CreationDate (" + PDF_DATE + b")",
+        payload,
+    )
+    payload, modified_count = re.subn(
+        rb"/ModDate \(D:[^)]+\)",
+        b"/ModDate (" + PDF_DATE + b")",
+        payload,
+    )
+    payload, identifier_count = re.subn(
+        rb"\s*/ID\s*\[\s*<[^>]+>\s*<[^>]+>\s*\]",
+        b"",
+        payload,
+    )
+    counts = {
+        "CreationDate": creation_count,
+        "ModDate": modified_count,
+        "ID": identifier_count,
+    }
+    missing = [name for name, count in counts.items() if count == 0]
+    if missing:
+        raise RuntimeError(
+            "PDF normalization did not find required fields: " + ", ".join(missing)
+        )
+    return payload
 
-print_js = f"""
+
+def render_pdf_with_chromium(html_path, pdf_path, run=subprocess.run):
+    """Render one HTML file to PDF through the installed Playwright Chromium."""
+    html_path = Path(html_path).resolve()
+    pdf_path = Path(pdf_path).resolve()
+    js_path = html_path.parent / "print.cjs"
+    print_js = f"""
 const {{ chromium }} = require('playwright');
 (async () => {{
   const browser = await chromium.launch();
   const page = await browser.newPage();
-  await page.goto('file://{HTML}', {{ waitUntil: 'networkidle' }});
-  await page.pdf({{ path: '{PDF}', preferCSSPageSize: true, printBackground: true }});
+  await page.goto({json.dumps(html_path.as_uri())}, {{ waitUntil: 'networkidle' }});
+  await page.pdf({{ path: {json.dumps(str(pdf_path))}, preferCSSPageSize: true, printBackground: true }});
   await browser.close();
 }})().catch((e) => {{ console.error(e); process.exit(1); }});
 """
-js_path = os.path.join(BASE, "exports", "print.cjs")
-with open(js_path, "w", encoding="utf-8") as f:
-    f.write(print_js)
-env = dict(os.environ)
-env["NODE_PATH"] = os.path.expanduser("~/.npm-global/lib/node_modules")
-subprocess.run(["node", js_path], check=True, env=env)
-os.remove(HTML)
-os.remove(js_path)
-print(f"built {PDF} ({os.path.getsize(PDF)/1024:.0f} KB)")
+    js_path.write_text(print_js, encoding="utf-8")
+    env = dict(os.environ)
+    node_paths = [env.get("NODE_PATH"), os.path.expanduser("~/.npm-global/lib/node_modules")]
+    env["NODE_PATH"] = os.pathsep.join(value for value in node_paths if value)
+    run(["node", str(js_path)], check=True, env=env)
+
+
+def verify_master_is_current(base, master):
+    """Fail closed unless the master exactly matches current chapter sources."""
+    base = Path(base)
+    master = Path(master)
+    expected, _ = assemble_master_text(base)
+    if not master.is_file() or master.read_text(encoding="utf-8") != expected:
+        raise RuntimeError(
+            "THE-SCREENSHOT.md is stale; run python3 build_release.py before building PDF"
+        )
+
+
+def build_pdf_artifact(
+    base,
+    master,
+    output,
+    run=subprocess.run,
+    render=render_pdf_with_chromium,
+    find_executable=shutil.which,
+):
+    """Build one validated PDF at a staged output path."""
+    base = Path(base)
+    master = Path(master)
+    output = Path(output)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    qpdf = find_executable("qpdf")
+    if not qpdf:
+        raise RuntimeError("qpdf is required to normalize deterministic PDF output")
+
+    with tempfile.TemporaryDirectory(prefix=".pdf-artifact-", dir=output.parent) as directory:
+        scratch = Path(directory)
+        css_path = scratch / "print.css"
+        html_path = scratch / "THE-SCREENSHOT.pdf.html"
+        raw_pdf = scratch / "THE-SCREENSHOT.raw.pdf"
+        qdf = scratch / "THE-SCREENSHOT.qdf.pdf"
+        normalized_pdf = scratch / "THE-SCREENSHOT.normalized.pdf"
+        css_path.write_text(PRINT_CSS, encoding="utf-8")
+
+        run([
+            "pandoc", str(master),
+            "-o", str(html_path),
+            "--standalone",
+            "--from", "markdown",
+            "--css", "print.css",
+            "--metadata", "title=THE SCREENSHOT",
+            "--metadata", "subtitle=Why AI Recommends Your Competitors, and How to Fix It",
+            "--metadata", "author=Jason Colapietro",
+            "--metadata", "date=Johnny Suede Press · 2026",
+            "--metadata", "lang=en-US",
+        ], check=True)
+        render(html_path, raw_pdf, run=run)
+        run(
+            [qpdf, "--qdf", "--object-streams=disable", str(raw_pdf), str(qdf)],
+            check=True,
+        )
+        qdf.write_bytes(normalize_pdf_payload(qdf.read_bytes()))
+        run([qpdf, "--static-id", str(qdf), str(normalized_pdf)], check=True)
+        if not normalized_pdf.is_file():
+            raise RuntimeError("qpdf completed without producing a normalized PDF")
+        run([qpdf, "--check", str(normalized_pdf)], check=True)
+        os.replace(normalized_pdf, output)
+
+    return output
+
+
+def build_pdf(
+    base=BASE,
+    run=subprocess.run,
+    render=render_pdf_with_chromium,
+    find_executable=shutil.which,
+):
+    """Build a standalone PDF only from a verified-current master."""
+    base = Path(base)
+    master = base / "THE-SCREENSHOT.md"
+    with release_lock(base):
+        exports = base / "exports"
+        exports.mkdir(parents=True, exist_ok=True)
+        pdf = exports / "THE-SCREENSHOT.pdf"
+        verify_master_is_current(base, master)
+
+        with tempfile.TemporaryDirectory(prefix=".pdf-publish-", dir=exports) as directory:
+            staged_pdf = Path(directory) / "THE-SCREENSHOT.pdf"
+            build_pdf_artifact(
+                base,
+                master,
+                staged_pdf,
+                run=run,
+                render=render,
+                find_executable=find_executable,
+            )
+            verify_master_is_current(base, master)
+            os.replace(staged_pdf, pdf)
+
+    print(f"built {pdf} ({pdf.stat().st_size/1024:.0f} KB)")
+    return pdf
+
+
+if __name__ == "__main__":
+    build_pdf()
