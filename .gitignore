@@ -1,3 +1,4 @@
 THE-SCREENSHOT.md
 __pycache__/
 .release-recovery/
+.DS_Store
