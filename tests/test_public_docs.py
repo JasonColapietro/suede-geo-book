@@ -42,6 +42,8 @@ class PublicDocsTests(unittest.TestCase):
             self.assertIn(required, workflow)
         self.assertIn("environment:", workflow)
         self.assertIn("github-pages", workflow)
+        self.assertIn("pull_request:", workflow)
+        self.assertGreaterEqual(workflow.count("github.event_name != 'pull_request'"), 3)
 
 
 if __name__ == "__main__":
