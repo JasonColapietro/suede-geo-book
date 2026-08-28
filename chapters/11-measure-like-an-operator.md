@@ -3,7 +3,7 @@
 # Chapter 11: Measure Like an Operator
 
 > "Never claim an outcome. Evidence, shipped inputs, and deltas only."
-> — from the Suede operations runbook
+> Source: Suede operations runbook
 
 The sentence at the top of this chapter is the rule I wrote for myself before I let myself sell any of this. It was a promise-discipline for client work: never tell a founder "you'll get cited." Show the evidence, ship the inputs, measure the delta. But read it again as a founder running your own program, because it is also the complete theory of measurement for AI visibility, in nine words.
 

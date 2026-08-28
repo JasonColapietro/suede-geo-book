@@ -1,7 +1,7 @@
 # Chapter 5: Compounding Absence
 
 > "Impressions are vanity; DMs are signal."
-> — from the Suede launch campaign
+> Source: Suede launch campaign
 
 Every founder understands compounding when it works for them. Content compounds. Reputation compounds. Distribution compounds. This chapter is about the version nobody budgets for: absence compounds too.
 

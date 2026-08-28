@@ -3,7 +3,7 @@
 # Chapter 1: The Screenshot
 
 > "The paid unit of value is the screenshot of ChatGPT, Perplexity, or Gemini recommending your competitor instead of you."
-> — from the Suede product spec
+> Source: Suede product spec
 
 There is a message I have sent to founders more times than I can count. It goes like this:
 

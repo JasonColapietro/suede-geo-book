@@ -1,7 +1,7 @@
 # Chapter 2: The Quiet Migration
 
 > "Free 10-second gut check first, no email required. It tells you whether AI crawlers can even read your site."
-> — from the Suede launch campaign
+> Source: Suede launch campaign
 
 Buying research used to have a shape everyone understood. A person with a problem typed words into a search box, received ten blue links, clicked a few, formed a shortlist, and bought. Every marketing discipline of the last two decades is a strategy for winning some stage of that shape. Rank higher. Write the comparison page. Earn the click. Convert the visit.
 

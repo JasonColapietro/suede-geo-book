@@ -1,7 +1,7 @@
 # Chapter 8: Extractable or Invisible
 
 > "AI systems extract passages, not pages."
-> — from the Suede AI SEO methodology
+> Source: Suede AI SEO methodology
 
 The machines can read you. You know which engines trust what. Now comes the chapter where you change your site, and it starts with the five-word sentence at the top, which is the closest thing this field has to a law of physics.
 

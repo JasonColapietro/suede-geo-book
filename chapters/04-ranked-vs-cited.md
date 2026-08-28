@@ -1,7 +1,7 @@
 # Chapter 4: Ranked vs. Cited
 
 > "In AI search, a well-structured page can get cited even if it ranks on page 2 or 3."
-> — from the Suede AI SEO methodology
+> Source: Suede AI SEO methodology
 
 Everything you know about search visibility was built for a tournament. Pages compete for a keyword, an algorithm scores the field, and the winners are displayed in order. Twenty years of SEO is the study of winning that tournament.
 
