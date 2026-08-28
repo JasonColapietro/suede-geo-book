@@ -1,7 +1,7 @@
 # Chapter 10: The Founder's Visibility Audit
 
 > "Run every check, and state explicitly when a check was skipped and why."
-> — from the Suede SEO audit discipline
+> Source: Suede SEO audit discipline
 
 Everything so far has been one repair at a time. This chapter assembles the whole diagnosis into a single sitting: the founder's edition of the audit I run professionally, reorganized so one non-technical person can complete it in an afternoon with a browser, a notes file, and the screenshots you have been collecting since Chapter 1.
 

@@ -1,7 +1,7 @@
 # Chapter 9: Receipts Beat Claims
 
 > "A founder buys from a named human with receipts, not a brand account with no face."
-> — from the Suede launch playbook
+> Source: Suede launch playbook
 
 The line above is from my own launch playbook, where it decided something small: which account posts. Everything for Suede ships from my personal account, under my name, with evidence attached. The brand account amplifies; it never originates. The reasoning was simple: a founder buys from a named human with receipts, not a brand account with no face.
 

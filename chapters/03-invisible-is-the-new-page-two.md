@@ -1,7 +1,7 @@
 # Chapter 3: Invisible Is the New Page Two
 
 > "Blocked silently, which is worse than an error."
-> - from the Suede operations runbook
+> Source: Suede operations runbook
 
 Every founder of the last twenty years learned one piece of search folklore: nobody looks at page two. It was the industry's favorite dark joke, the punchline about where to hide a body. But page two, for all its deadness, had a redeeming feature that we only appreciate now that it is gone.
 

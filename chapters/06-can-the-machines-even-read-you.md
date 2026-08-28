@@ -3,7 +3,7 @@
 # Chapter 6: Can the Machines Even Read You?
 
 > "Fetch the file and read the rules. Do not assume."
-> - from the Suede AI SEO methodology
+> Source: Suede AI SEO methodology
 
 Every repair in this book depends on one precondition: when an AI crawler shows up at your site, it gets your content. Not a block, not a challenge page, not an empty JavaScript shell. Your actual words.
 
