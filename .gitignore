@@ -2,3 +2,7 @@ THE-SCREENSHOT.md
 __pycache__/
 .release-recovery/
 .DS_Store
+*.pyc
+_site/
+.publication-audit/
+.font-downloads/
