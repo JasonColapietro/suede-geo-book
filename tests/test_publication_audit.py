@@ -60,6 +60,23 @@ class PublicationAuditTests(unittest.TestCase):
 
         self.assertEqual(findings, [])
 
+    def test_bundled_licensed_typefaces_are_allowed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            fonts = root / "pages/assets/fonts"
+            fonts.mkdir(parents=True)
+            paths = [
+                "pages/assets/fonts/BarlowCondensed-SemiBold.ttf",
+                "pages/assets/fonts/IBMPlexMono-Regular.ttf",
+                "pages/assets/fonts/SourceSerif4-Variable.ttf",
+            ]
+            for path in paths:
+                (root / path).write_bytes(b"\x00licensed-font")
+
+            findings = audit_tree(root, paths)
+
+        self.assertEqual(findings, [])
+
     def test_unexpected_large_binary_is_rejected(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

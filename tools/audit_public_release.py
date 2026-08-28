@@ -15,6 +15,9 @@ TEXT_SCAN_LIMIT = 2 * 1024 * 1024
 ALLOWED_BINARIES = {
     "exports/THE-SCREENSHOT.pdf",
     "exports/THE-SCREENSHOT.epub",
+    "pages/assets/fonts/BarlowCondensed-SemiBold.ttf",
+    "pages/assets/fonts/IBMPlexMono-Regular.ttf",
+    "pages/assets/fonts/SourceSerif4-Variable.ttf",
 }
 SECRET_PATTERNS = (
     re.compile(
