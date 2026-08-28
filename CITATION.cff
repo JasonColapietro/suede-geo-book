@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: 'If this book informs your work, cite it using the metadata below.'
+type: book
+title: 'The Screenshot'
+subtitle: 'Why AI Recommends Your Competitors, and How to Fix It'
+authors:
+  - family-names: 'Colapietro'
+    given-names: 'Jason'
+publisher:
+  name: 'Johnny Suede Press'
+version: 1.0.0
+date-released: '2026-08-28'
+url: 'https://seo.suedeai.ai/book'
+repository-code: 'https://github.com/JasonColapietro/suede-geo-book'
+keywords:
+  - 'search engine optimization'
+  - 'generative engine optimization'
+  - 'answer engine optimization'
+  - 'AI visibility'
+license: 'LicenseRef-Proprietary'
