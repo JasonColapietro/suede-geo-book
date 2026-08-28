@@ -176,7 +176,7 @@ def render_read_index(publication: Publication, chapters: Sequence[Chapter]) -> 
   <main id="content" class="index-sheet">
     <p class="section-label">PUBLIC READING MIRROR</p>
     <h1>Read {_e(publication.title)}</h1>
-    <p>This mirror is provided for public reading and source inspection. The indexed edition lives on <a href="{_e(publication.canonical_base)}">Suede SEO</a>.</p>
+    <p>Use this mirror for public reading and source inspection. The indexed edition lives on <a href="{_e(publication.canonical_base)}">Suede SEO</a>.</p>
     <ol class="reading-index">{items}</ol>
   </main>"""
     return _document(
@@ -274,7 +274,7 @@ def render_downloads(publication: Publication) -> str:
   <main id="content" class="downloads-sheet">
     <p class="section-label">VERSION {_e(publication.version)}</p>
     <h1>Take the book offline</h1>
-    <p>The PDF and EPUB come from the same chapter source as the primary web edition.</p>
+    <p>One chapter source builds the PDF, EPUB, and primary web edition.</p>
     <div class="format-list">
       <a class="format" href="{PROJECT_PATH}/downloads/THE-SCREENSHOT.pdf"><b>PDF</b><span>Print and fixed-layout reading</span></a>
       <a class="format" href="{PROJECT_PATH}/downloads/THE-SCREENSHOT.epub"><b>EPUB</b><span>Reflowable book-reader format</span></a>
@@ -295,13 +295,13 @@ def render_404(publication: Publication) -> str:
     body = f"""
   <main id="content" class="error-sheet">
     <p class="section-label">MISSING CAPTURE</p>
-    <h1>This page is not in the record.</h1>
+    <h1>This route has no book page.</h1>
     <p>Return to the <a href="{PROJECT_PATH}/">public source edition</a> or read the <a href="{_e(publication.canonical_base)}">primary book</a>.</p>
   </main>"""
     return _document(
         publication,
         title=f"Page not found | {publication.title}",
-        description="The requested book page was not found.",
+        description="This route has no book page.",
         canonical=f"{publication.pages_base}/404.html",
         robots="noindex,follow",
         body=body,

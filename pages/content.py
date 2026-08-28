@@ -2,8 +2,8 @@
 
 HOME_KICKER = "PUBLIC SOURCE EDITION / JOHNNY SUEDE PRESS"
 HOME_THESIS = (
-    "ChatGPT is recommending your competitors. This book shows you how to "
-    "capture the answer, repair the sources behind it, and measure what changed."
+    "ChatGPT is recommending your competitors. Use this book to capture the answer, "
+    "repair the sources behind it, and measure what changed."
 )
 HOME_INTRO = (
     "A buyer asks an answer engine for the best company in your category. Two names "
@@ -20,8 +20,8 @@ SERVICE_HEADING = "SEO and GEO work with receipts"
 SERVICE_COPY = (
     "Suede runs SEO and GEO as one operating practice. We measure what answer engines "
     "say, repair the pages and entity records they rely on, and build the press record "
-    "they can cite. The work is sold on retainer, scoped by reply, with no promise of "
-    "a ranking or recommendation."
+    "they can cite. Suede sells the work on retainer and scopes it by reply. We do not "
+    "promise a ranking or recommendation."
 )
 EVIDENCE_NOTE = (
     "Engine behavior changes between products, accounts, sessions, and dates. The book "
@@ -36,6 +36,6 @@ ABOUT_COPY = (
     "measurement."
 )
 ABOUT_SOURCE = (
-    "The Markdown chapters in this repository are the manuscript source. The PDF, "
-    "EPUB, Suede SEO edition, and this GitHub Pages mirror are built from that record."
+    "The Markdown chapters in this repository are the manuscript source. One source "
+    "commit builds the PDF, EPUB, Suede SEO edition, and this GitHub Pages mirror."
 )

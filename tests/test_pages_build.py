@@ -1,9 +1,11 @@
 import json
+import re
 import tempfile
 import unittest
 from pathlib import Path
 
 from pages.build import build_site
+from tools.audit_public_copy import audit_copy
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -92,6 +94,54 @@ class PagesBuildTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             with self.assertRaisesRegex(ValueError, "unsafe rendered HTML"):
                 build_site(ROOT, Path(directory) / "site", renderer=unsafe_renderer)
+
+    def test_generated_site_has_no_external_runtime_assets(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "site"
+            build_site(ROOT, output, renderer=fake_renderer)
+            pages = list(output.rglob("*.html"))
+
+            for page in pages:
+                text = page.read_text(encoding="utf-8")
+                self.assertIsNone(
+                    re.search(
+                        r'(?:src|href)="https?://[^\"]+\.(?:js|css|woff2?|ttf)',
+                        text,
+                    ),
+                    page,
+                )
+
+    def test_generated_site_has_no_machine_residue(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "site"
+            build_site(ROOT, output, renderer=fake_renderer)
+            findings = audit_copy([ROOT / "pages/content.py", *output.rglob("*.html")])
+
+        self.assertEqual(findings, [])
+
+    def test_visual_assets_are_local_licensed_and_accessible(self):
+        css = (ROOT / "pages/assets/book.css").read_text(encoding="utf-8")
+        javascript = (ROOT / "pages/assets/book.js").read_text(encoding="utf-8")
+        fonts = ROOT / "pages/assets/fonts"
+
+        self.assertIn("@font-face", css)
+        self.assertIn("@media (prefers-reduced-motion: reduce)", css)
+        self.assertIn(":focus-visible", css)
+        self.assertIn("@media print", css)
+        self.assertNotIn("linear-gradient", css)
+        self.assertNotIn("radial-gradient", css)
+        self.assertNotIn("fetch(", javascript)
+        self.assertNotIn("localStorage", javascript)
+        for name in (
+            "BarlowCondensed-SemiBold.ttf",
+            "SourceSerif4-Variable.ttf",
+            "IBMPlexMono-Regular.ttf",
+            "OFL-Barlow.txt",
+            "OFL-Source-Serif-4.txt",
+            "OFL-IBM-Plex.txt",
+            "SHA256SUMS",
+        ):
+            self.assertTrue((fonts / name).is_file(), name)
 
 
 if __name__ == "__main__":
