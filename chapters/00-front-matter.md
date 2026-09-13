@@ -11,7 +11,7 @@
 ## Epigraph
 
 > "Traditional SEO gets you ranked. AI SEO gets you cited."
-> Source: Suede AI SEO methodology
+> Source: Suede Labs AI SEO methodology
 
 ## About the Author
 
