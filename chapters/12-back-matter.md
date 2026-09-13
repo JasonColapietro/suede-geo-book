@@ -92,4 +92,4 @@ Everything in this book can be done by hand. These are the shortcuts, disclosed 
 
 Every engagement carries a point-in-time disclaimer and a refund policy. None of them guarantees a citation, a ranking, or a recommendation, because nobody honest can.
 
-*The Screenshot* is a Johnny Suede Press book by Jason Colapietro, founder of Suede Labs. All engine behaviors described were observed as of this edition's writing and will drift; the discipline is built to outlast the details. Trademarks belong to their owners; the engines named here are products of their respective companies, and nothing in this book implies their endorsement.
+*The Screenshot* is a Johnny Suede Press book by Jason Colapietro, founder of Suede Labs AI. All engine behaviors described were observed as of this edition's writing and will drift; the discipline is built to outlast the details. Trademarks belong to their owners; the engines named here are products of their respective companies, and nothing in this book implies their endorsement.
