@@ -11,6 +11,24 @@ from pages.model import Chapter, Publication
 
 
 PROJECT_PATH = "/suede-geo-book"
+AUTHOR_HOME = "https://jasoncolapietro.com/"
+PRIVACY_URL = "https://suedeai.ai/privacy"
+SITE_NAME = "The Screenshot"
+TWITTER_CREATOR = "@johnnysuede"
+OG_IMAGE_PATH = "/assets/og-cover.png"
+OG_IMAGE_WIDTH = 1200
+OG_IMAGE_HEIGHT = 630
+PERSON_SAME_AS = (
+    "https://www.wikidata.org/wiki/Q140235755",
+    "https://www.linkedin.com/in/jasoncolapietro",
+    "https://github.com/JasonColapietro",
+    "https://x.com/johnnysuede",
+    "https://www.youtube.com/@johnnysuede",
+    "https://www.crunchbase.com/person/jason-colapietro-d83e",
+    "https://www.amazon.com/stores/author/B0H3DPP75K",
+    "https://apps.apple.com/us/developer/jason-colapietro/id1895958699",
+    "https://jasoncolapietro.substack.com/",
+)
 
 
 def _e(value: str) -> str:
@@ -52,6 +70,8 @@ def _site_graph(publication: Publication, page_url: str, page_name: str) -> dict
                 "sameAs": publication.repository_base,
                 "author": {"@id": person_id},
                 "publisher": {"@type": "Organization", "name": publication.publisher},
+                "datePublished": publication.publication_date,
+                "version": publication.version,
                 "inLanguage": "en-US",
             },
             {
@@ -59,14 +79,55 @@ def _site_graph(publication: Publication, page_url: str, page_name: str) -> dict
                 "@id": person_id,
                 "name": publication.author,
                 "alternateName": "Johnny Suede",
-                "url": "https://suedeai.ai/founder",
-                "sameAs": [
-                    "https://github.com/JasonColapietro",
-                    "https://www.linkedin.com/in/jasoncolapietro",
+                "url": AUTHOR_HOME,
+                "jobTitle": "Founder and CEO, Suede AI",
+                "worksFor": [
+                    {"@id": "https://suedeai.ai/#organization"},
+                    {"@id": "https://jcinvestmentgroup.ventures/#organization"},
                 ],
+                "sameAs": list(PERSON_SAME_AS),
             },
         ],
     }
+
+
+def _social_meta(
+    publication: Publication,
+    *,
+    og_type: str,
+    title: str,
+    description: str,
+    page_url: str,
+) -> str:
+    image = f"{publication.pages_base}{OG_IMAGE_PATH}"
+    alt = f"Cover of {publication.title} by {publication.author}"
+    tags = [
+        ("property", "og:type", og_type),
+        ("property", "og:site_name", SITE_NAME),
+        ("property", "og:title", title),
+        ("property", "og:description", description),
+        ("property", "og:url", page_url),
+        ("property", "og:image", image),
+        ("property", "og:image:type", "image/png"),
+        ("property", "og:image:width", str(OG_IMAGE_WIDTH)),
+        ("property", "og:image:height", str(OG_IMAGE_HEIGHT)),
+        ("property", "og:image:alt", alt),
+    ]
+    if og_type == "book":
+        tags.append(("property", "book:author", AUTHOR_HOME))
+        tags.append(("property", "book:release_date", publication.publication_date))
+    tags += [
+        ("name", "twitter:card", "summary_large_image"),
+        ("name", "twitter:creator", TWITTER_CREATOR),
+        ("name", "twitter:title", title),
+        ("name", "twitter:description", description),
+        ("name", "twitter:image", image),
+        ("name", "twitter:image:alt", alt),
+    ]
+    return "".join(
+        f'\n  <meta {attribute}="{_e(key)}" content="{_e(value)}">'
+        for attribute, key, value in tags
+    )
 
 
 def _document(
@@ -75,12 +136,23 @@ def _document(
     title: str,
     description: str,
     canonical: str,
+    page_url: str,
     body: str,
     body_class: str,
+    og_type: str = "website",
+    og_title: str | None = None,
+    og_description: str | None = None,
     robots: str | None = None,
     graph: dict[str, object] | None = None,
 ) -> str:
     robots_meta = f'\n  <meta name="robots" content="{_e(robots)}">' if robots else ""
+    social_meta = _social_meta(
+        publication,
+        og_type=og_type,
+        title=og_title or title,
+        description=og_description or description,
+        page_url=page_url,
+    )
     schema = graph or _site_graph(publication, canonical, title)
     return f"""<!doctype html>
 <html lang="en">
@@ -89,7 +161,7 @@ def _document(
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{_e(title)}</title>
   <meta name="description" content="{_e(description)}">{robots_meta}
-  <link rel="canonical" href="{_e(canonical)}">
+  <link rel="canonical" href="{_e(canonical)}">{social_meta}
   <link rel="stylesheet" href="{PROJECT_PATH}/assets/book.css">
   <script type="application/ld+json">{_json_ld(schema)}</script>
 </head>
@@ -106,8 +178,8 @@ def _document(
   </header>
   {body}
   <footer class="site-foot">
-    <p>{_e(publication.author)} / {_e(publication.publisher)}</p>
-    <p><a href="{_e(publication.canonical_base)}">Primary edition</a> · <a href="https://seo.suedeai.ai/#contact">SEO and GEO practice</a></p>
+    <p><a href="{AUTHOR_HOME}" rel="author">{_e(publication.author)}</a> / {_e(publication.publisher)}</p>
+    <p><a href="{_e(publication.canonical_base)}">Primary edition</a> · <a href="https://seo.suedeai.ai/#contact">SEO and GEO practice</a> · <a href="{PRIVACY_URL}">Privacy</a></p>
   </footer>
   <script src="{PROJECT_PATH}/assets/book.js" defer></script>
 </body>
@@ -130,6 +202,7 @@ def render_home(publication: Publication, chapters: Sequence[Chapter]) -> str:
       <p class="kicker">{_e(content.HOME_KICKER)}</p>
       <h1>{_e(publication.title)}</h1>
       <p class="subtitle">{_e(publication.subtitle)}</p>
+      <p class="byline">By <a href="{AUTHOR_HOME}" rel="author">{_e(publication.author)}</a></p>
       <p class="thesis">{_e(content.HOME_THESIS)}</p>
       <div class="actions">
         <a class="button primary" href="{_e(publication.canonical_base)}">Read the primary edition</a>
@@ -162,6 +235,10 @@ def render_home(publication: Publication, chapters: Sequence[Chapter]) -> str:
         title=f"{publication.title} | Public source edition",
         description=content.HOME_THESIS,
         canonical=f"{publication.pages_base}/",
+        page_url=f"{publication.pages_base}/",
+        og_type="book",
+        og_title=f"{publication.title}: {publication.subtitle}",
+        og_description=content.HOME_SHARE_DESCRIPTION,
         body=body,
         body_class="home",
     )
@@ -184,6 +261,7 @@ def render_read_index(publication: Publication, chapters: Sequence[Chapter]) -> 
         title=f"Read {publication.title}",
         description=f"Public reading mirror for {publication.title} by {publication.author}.",
         canonical=f"{publication.pages_base}/read/",
+        page_url=f"{publication.pages_base}/read/",
         robots="noindex,follow",
         body=body,
         body_class="read-index",
@@ -238,6 +316,8 @@ def render_chapter(
         title=f"{chapter.title} | {publication.title}",
         description=f"{chapter.title}, from {publication.title} by {publication.author}.",
         canonical=chapter.primary_url,
+        page_url=f"{publication.pages_base}/read/{chapter.slug}/",
+        og_type="article",
         robots="noindex,follow",
         body=body,
         body_class="chapter",
@@ -253,7 +333,7 @@ def render_about(publication: Publication) -> str:
     <p>{_e(content.ABOUT_COPY)}</p>
     <p>{_e(content.ABOUT_SOURCE)}</p>
     <dl class="publication-record">
-      <div><dt>Author</dt><dd>{_e(publication.author)}</dd></div>
+      <div><dt>Author</dt><dd><a href="{AUTHOR_HOME}" rel="author">{_e(publication.author)}</a></dd></div>
       <div><dt>Publisher</dt><dd>{_e(publication.publisher)}</dd></div>
       <div><dt>Version</dt><dd>{_e(publication.version)}</dd></div>
       <div><dt>Published</dt><dd>{_e(publication.publication_date)}</dd></div>
@@ -264,6 +344,7 @@ def render_about(publication: Publication) -> str:
         title=f"About {publication.title}",
         description=f"Author, publisher, source, and evidence record for {publication.title}.",
         canonical=f"{publication.pages_base}/about/",
+        page_url=f"{publication.pages_base}/about/",
         body=body,
         body_class="about",
     )
@@ -285,6 +366,7 @@ def render_downloads(publication: Publication) -> str:
         title=f"Download {publication.title}",
         description=f"Download {publication.title} by {publication.author} as PDF or EPUB.",
         canonical=f"{publication.pages_base}/downloads/",
+        page_url=f"{publication.pages_base}/downloads/",
         robots="noindex,follow",
         body=body,
         body_class="downloads",
@@ -303,6 +385,7 @@ def render_404(publication: Publication) -> str:
         title=f"Page not found | {publication.title}",
         description="This route has no book page.",
         canonical=f"{publication.pages_base}/404.html",
+        page_url=f"{publication.pages_base}/404.html",
         robots="noindex,follow",
         body=body,
         body_class="error",
