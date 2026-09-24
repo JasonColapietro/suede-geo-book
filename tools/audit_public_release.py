@@ -18,6 +18,7 @@ ALLOWED_BINARIES = {
     "pages/assets/fonts/BarlowCondensed-SemiBold.ttf",
     "pages/assets/fonts/IBMPlexMono-Regular.ttf",
     "pages/assets/fonts/SourceSerif4-Variable.ttf",
+    "pages/assets/og-cover.png",
 }
 SECRET_PATTERNS = (
     re.compile(

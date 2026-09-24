@@ -35,6 +35,12 @@ python3 pages/build.py --output _site --pandoc pandoc
 python3 tools/audit_public_copy.py _site
 ```
 
+The social share cover at `pages/assets/og-cover.png` (1200x630) is rendered from the bundled typefaces and committed. Regenerate it with Pillow after a title, subtitle, or palette change:
+
+```bash
+python3 tools/build_og_cover.py
+```
+
 Build all book formats after editing a chapter:
 
 ```bash
