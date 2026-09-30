@@ -31,7 +31,7 @@ EVIDENCE_NOTE = (
 ABOUT_COPY = (
     "Jason Colapietro wrote The Screenshot for founders who have never checked what "
     "answer engines recommend in their category. He is the founder and CEO of Suede "
-    "Labs AI and publishes books through Johnny Suede Press. His SEO and GEO practice "
+    "AI and publishes books through Johnny Suede Press. His SEO and GEO practice "
     "uses dated captures, source repair, technical SEO, public relations, and repeat "
     "measurement."
 )
