@@ -5,6 +5,10 @@ HOME_THESIS = (
     "ChatGPT is recommending your competitors. Use this book to capture the answer, "
     "repair the sources behind it, and measure what changed."
 )
+HOME_SHARE_DESCRIPTION = (
+    "A founder's field manual by Jason Colapietro: capture what answer engines say, "
+    "repair the sources behind it, and measure what changed."
+)
 HOME_INTRO = (
     "A buyer asks an answer engine for the best company in your category. Two names "
     "appear. Yours does not. The Screenshot is a founder's field manual for reading "

@@ -211,6 +211,15 @@ a:hover {
   line-height: 1;
 }
 
+.byline {
+  margin: 22px 0 0;
+  color: var(--ink);
+  font-family: var(--utility);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 .thesis {
   max-width: 680px;
   margin: 34px 0 0;

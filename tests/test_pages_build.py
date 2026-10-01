@@ -87,6 +87,94 @@ class PagesBuildTests(unittest.TestCase):
         self.assertEqual(robots, "User-agent: *\nAllow: /\n")
         self.assertNotIn("Disallow", robots)
 
+    def test_every_page_carries_share_tags_author_and_privacy_links(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "site"
+            build_site(ROOT, output, renderer=fake_renderer)
+            pages = {
+                "": output / "index.html",
+                "about/": output / "about/index.html",
+                "read/": output / "read/index.html",
+                "downloads/": output / "downloads/index.html",
+                "read/the-screenshot/": output / "read/the-screenshot/index.html",
+            }
+            texts = {route: path.read_text(encoding="utf-8") for route, path in pages.items()}
+
+        base = "https://jasoncolapietro.github.io/suede-geo-book/"
+        image = f"{base}assets/og-cover.png"
+        for route, text in texts.items():
+            with self.subTest(route=route):
+                self.assertIn(f'<meta property="og:url" content="{base}{route}">', text)
+                self.assertIn(f'<meta property="og:image" content="{image}">', text)
+                self.assertIn('<meta property="og:image:width" content="1200">', text)
+                self.assertIn('<meta property="og:image:height" content="630">', text)
+                self.assertIn('<meta property="og:site_name" content="The Screenshot">', text)
+                self.assertIn('property="og:title"', text)
+                self.assertIn('property="og:description"', text)
+                self.assertIn('property="og:image:alt"', text)
+                self.assertIn('<meta name="twitter:card" content="summary_large_image">', text)
+                self.assertIn('<meta name="twitter:creator" content="@johnnysuede">', text)
+                self.assertIn(f'<meta name="twitter:image" content="{image}">', text)
+                self.assertIn('<a href="https://suedeai.ai/privacy">Privacy</a>', text)
+                self.assertIn(
+                    '<a href="https://jasoncolapietro.com/" rel="author">Jason Colapietro</a>',
+                    text,
+                )
+
+        self.assertIn('<meta property="og:type" content="book">', texts[""])
+        self.assertIn('<meta property="og:type" content="article">', texts["read/the-screenshot/"])
+        self.assertIn('<meta property="og:type" content="website">', texts["about/"])
+        self.assertIn('<p class="byline">By <a href="https://jasoncolapietro.com/"', texts[""])
+        self.assertNotIn('name="robots"', texts[""])
+        self.assertNotIn('name="robots"', texts["about/"])
+        for route in ("read/", "downloads/", "read/the-screenshot/"):
+            self.assertIn('<meta name="robots" content="noindex,follow">', texts[route])
+
+    def test_person_schema_matches_the_canonical_entity(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "site"
+            build_site(ROOT, output, renderer=fake_renderer)
+            home = (output / "index.html").read_text(encoding="utf-8")
+
+        raw = re.search(r'<script type="application/ld\+json">(.*?)</script>', home).group(1)
+        graph = json.loads(raw)["@graph"]
+        person = next(node for node in graph if node["@type"] == "Person")
+        book = next(node for node in graph if node["@type"] == "Book")
+        self.assertEqual(
+            person,
+            {
+                "@type": "Person",
+                "@id": "https://suedeai.ai/founder#person",
+                "name": "Jason Colapietro",
+                "alternateName": "Johnny Suede",
+                "url": "https://jasoncolapietro.com/",
+                "jobTitle": "Founder and CEO, Suede AI",
+                "worksFor": [
+                    {"@id": "https://suedeai.ai/#organization"},
+                    {"@id": "https://jcinvestmentgroup.ventures/#organization"},
+                ],
+                "sameAs": [
+                    "https://www.wikidata.org/wiki/Q140235755",
+                    "https://www.linkedin.com/in/jasoncolapietro",
+                    "https://github.com/JasonColapietro",
+                    "https://x.com/johnnysuede",
+                    "https://www.youtube.com/@johnnysuede",
+                    "https://www.crunchbase.com/person/jason-colapietro-d83e",
+                    "https://www.amazon.com/stores/author/B0H3DPP75K",
+                    "https://apps.apple.com/us/developer/jason-colapietro/id1895958699",
+                    "https://jasoncolapietro.substack.com/",
+                ],
+            },
+        )
+        self.assertEqual(book["datePublished"], "2026-08-28")
+        self.assertEqual(book["version"], "1.0.0")
+
+    def test_share_cover_is_a_1200_by_630_png(self):
+        cover = (ROOT / "pages/assets/og-cover.png").read_bytes()
+        self.assertEqual(cover[:8], b"\x89PNG\r\n\x1a\n")
+        self.assertEqual(int.from_bytes(cover[16:20], "big"), 1200)
+        self.assertEqual(int.from_bytes(cover[20:24], "big"), 630)
+
     def test_rejects_unsafe_rendered_fragment(self):
         def unsafe_renderer(_: str) -> str:
             return '<p onclick="steal()">Unsafe</p><script>steal()</script>'
