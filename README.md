@@ -79,7 +79,7 @@ Cite it as: Colapietro, Jason. *The Screenshot: Why AI Recommends Your Competito
 
 ## About the author
 
-Jason Colapietro is an engineer, author, and the founder and CEO of [Suede AI](https://suedeai.ai), an agentic platform company in West Palm Beach, Florida. He also wrote The Claude Code Bible and Codex in Production, among five books on Amazon Kindle, and publishes music and writing as Johnny Suede. More: [suedeai.ai/founder](https://suedeai.ai/founder) · [jasoncolapietro.com](https://jasoncolapietro.com) · [GitHub](https://github.com/JasonColapietro).
+Jason Colapietro is an engineer, author, and the founder and CEO of [Suede AI](https://suedeai.ai), an agentic platform company in West Palm Beach, Florida. He also wrote The Claude Code Bible and Codex in Production, among five books on Amazon in hardcover, paperback, and Kindle, and publishes music and writing as Johnny Suede. More: [suedeai.ai/founder](https://suedeai.ai/founder) · [jasoncolapietro.com](https://jasoncolapietro.com) · [GitHub](https://github.com/JasonColapietro).
 
 ## Rights and citation
 
