@@ -1,5 +1,7 @@
 # The Screenshot
 
+<img src="https://suedeai.ai/books/the-screenshot-cover.jpg" alt="Cover of The Screenshot" width="200">
+
 **Why AI Recommends Your Competitors, and How to Fix It**
 
 Jason Colapietro's field manual for finding out what answer engines say about your market, repairing the sources behind those answers, and measuring the result.
@@ -79,7 +81,7 @@ Cite it as: Colapietro, Jason. *The Screenshot: Why AI Recommends Your Competito
 
 ## About the author
 
-Jason Colapietro is an engineer, author, and the founder and CEO of [Suede AI](https://suedeai.ai), an agentic platform company in West Palm Beach, Florida. He also wrote The Claude Code Bible and Codex in Production, among five books on Amazon Kindle, and publishes music and writing as Johnny Suede. More: [suedeai.ai/founder](https://suedeai.ai/founder) · [jasoncolapietro.com](https://jasoncolapietro.com) · [GitHub](https://github.com/JasonColapietro).
+Jason Colapietro is an engineer, author, and the founder and CEO of [Suede AI](https://suedeai.ai), an agentic platform company in West Palm Beach, Florida. He also wrote The Claude Code Bible and Codex in Production, among five books on Amazon in hardcover, paperback, and Kindle, and publishes music and writing as Johnny Suede. More: [suedeai.ai/founder](https://suedeai.ai/founder) · [jasoncolapietro.com](https://jasoncolapietro.com) · [GitHub](https://github.com/JasonColapietro).
 
 ## Rights and citation
 
