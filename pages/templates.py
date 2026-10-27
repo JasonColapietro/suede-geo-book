@@ -200,6 +200,7 @@ def render_home(publication: Publication, chapters: Sequence[Chapter]) -> str:
         <span>CAPTURE 01</span><span>{_e(publication.publication_date)}</span><span>PUBLIC SOURCE</span>
       </div>
       <p class="kicker">{_e(content.HOME_KICKER)}</p>
+      <img src="https://suedeai.ai/books/the-screenshot-cover.jpg" alt="Cover of The Screenshot" width="160" height="256" loading="lazy" style="display:block;object-fit:contain;max-width:100%;margin-bottom:0.75rem">
       <h1>{_e(publication.title)}</h1>
       <p class="subtitle">{_e(publication.subtitle)}</p>
       <p class="byline">By <a href="{AUTHOR_HOME}" rel="author">{_e(publication.author)}</a></p>

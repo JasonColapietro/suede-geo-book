@@ -1,5 +1,7 @@
 # The Screenshot
 
+<img src="https://suedeai.ai/books/the-screenshot-cover.jpg" alt="Cover of The Screenshot" width="200">
+
 **Why AI Recommends Your Competitors, and How to Fix It**
 
 Jason Colapietro's field manual for finding out what answer engines say about your market, repairing the sources behind those answers, and measuring the result.
