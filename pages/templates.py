@@ -162,6 +162,7 @@ def _document(
   <title>{_e(title)}</title>
   <meta name="description" content="{_e(description)}">{robots_meta}
   <link rel="canonical" href="{_e(canonical)}">{social_meta}
+  <link rel="icon" type="image/png" sizes="64x64" href="{PROJECT_PATH}/assets/favicon-64.png">
   <link rel="stylesheet" href="{PROJECT_PATH}/assets/book.css">
   <script type="application/ld+json">{_json_ld(schema)}</script>
 </head>
